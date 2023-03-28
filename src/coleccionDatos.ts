@@ -1,4 +1,4 @@
-import { ColeccionFunkos } from "./coleccionFunkos.js";
+import { ColeccionFunkos } from "./coleccionFunkos";
 
 export class ColeccionDatos {
   constructor(private datos: ColeccionFunkos[]) {

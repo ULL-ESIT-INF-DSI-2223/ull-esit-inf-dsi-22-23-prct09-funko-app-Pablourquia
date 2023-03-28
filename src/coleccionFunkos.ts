@@ -1,4 +1,4 @@
-import { Funko } from "./funko.js";
+import { Funko } from "./funko";
 
 export class ColeccionFunkos {
   constructor(private nombre_usuario: string, private funkos: Funko[]) {

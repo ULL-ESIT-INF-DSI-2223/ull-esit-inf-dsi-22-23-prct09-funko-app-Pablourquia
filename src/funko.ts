@@ -4,8 +4,14 @@ export enum Genero {
   Aventura = 'Aventura',
 };
 
+export enum Tipo {
+  Pop = 'Pop',
+  Pop_Rides = 'Pop Rides',
+  Pop_Vinyl = 'Pop Vinyl',
+};
+
 export class Funko {
-  constructor (private id : number, private nombre : string, private descripcion : string, private tipo : string, private genero : Genero, private franquicia : string, private numero : number, private exclusivo : boolean, private caracteristicasEspeciales : string, private valorMercado : number) {
+  constructor (private id : number, private nombre : string, private descripcion : string, private tipo : Tipo, private genero : Genero, private franquicia : string, private numero : number, private exclusivo : boolean, private caracteristicasEspeciales : string, private valorMercado : number) {
     this.id = id
     this.nombre = nombre
     this.descripcion = descripcion
@@ -26,7 +32,7 @@ export class Funko {
   getDescripcion () : string {
     return this.descripcion
   }
-  getTipo () : string {
+  getTipo () : Tipo {
     return this.tipo
   }
   getGenero () : Genero {
@@ -56,7 +62,7 @@ export class Funko {
   setDescripcion (descripcion : string) {
     this.descripcion = descripcion
   }
-  setTipo (tipo : string) {
+  setTipo (tipo : Tipo) {
     this.tipo = tipo
   }
   setGenero (genero : Genero) {
