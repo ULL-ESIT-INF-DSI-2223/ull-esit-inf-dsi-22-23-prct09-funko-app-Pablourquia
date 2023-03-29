@@ -583,6 +583,91 @@ yargs(hideBin(process.argv))
 Aquí se crea el comando list, que lista todos los funkos de la colección de todos los usuarios.
 Además se tiene en cuenta el precio del funko para mostrarlo en diferentes colores.
 
+### Modificación
+
+En la modificación se nos pide usando la metodología Template Method crear una clase abstracta que contenga una lista de elementos, que contenga los métodos Filtrado, Map y Reduce, aunque reduce se definirá como funciona en las clases hijas.
+
+```ts
+export abstract class ListaNumeros {
+  protected lista : number[];
+  constructor(lista : number[]) {
+    this.lista = lista;
+  }
+  protected FiltradoLista (predicado : (valor : number) => boolean = (valor : number ) => valor > 5) : void {
+    let resultado : number[] = [];
+    this.lista.forEach (valor => {
+      if (predicado(valor)) {
+        resultado.push(valor);
+      }
+    }
+    );
+    this.lista = resultado;
+  }
+  protected MapLista (funcion : (valor : number) => number = (valor : number) => valor * 2) : void {
+    let resultado : number[] = [];
+    this.lista.forEach (valor => {
+      resultado.push(funcion(valor));
+    }
+    );
+    this.lista = resultado;
+  }
+  protected abstract ReducirLista () : number;
+  protected afterFiltrado(): void {
+    console.log("Despues filtrado:" + this.lista);
+  }
+  protected afterMap(): void {
+    console.log("Despues map:" + this.lista);
+  };
+  protected afterReducir(): void {
+    console.log("Despues reducir:" + this.lista);
+  };
+  protected beforeFiltrado(): void {
+    console.log("Antes filtrado:" + this.lista);
+  }
+  protected beforeMap(): void {
+    console.log("Antes map:" + this.lista);
+  };
+  protected beforeReducir(): void {
+    console.log("Antes reducir:" + this.lista);
+  };
+
+  public run () {
+    this.beforeFiltrado();
+    this.FiltradoLista();
+    this.afterFiltrado();
+    this.beforeMap();
+    this.MapLista();
+    this.afterMap();
+    this.beforeReducir();
+    let resultado = this.ReducirLista();
+    this.afterReducir();
+    return resultado;
+  }
+}
+```
+
+Esta clase tiene los métodos hooks para ver el estado de la lista antes y después de filtrar, reducir y hacer el map. Tiene las implementaciones de los método filtrado y map y el método reducir es abstracto. Luego en el método run se llama a los hooks y se llama a los métodos de la clase.
+
+En las clases hijas se define el método reducir de manera difente en cada una de ellas.
+
+```ts
+export class FilterMapAddReduce extends ListaNumeros {
+  constructor (lista : number[]) {
+    super(lista);
+  }
+  protected ReducirLista () : number {
+    let resultado : number = 0;
+    this.lista.forEach((n) => {
+      resultado += n;
+    });
+    this.lista = [resultado];
+    return resultado;
+  }
+}
+```
+
+En esta implementación se crea la clase hija de la anterior, encargada de sumar. Por lo tanto en el método reducir se van sumando los elementos. Hay tres clases hijas más, las cuáles son para la resta, la multiplicación y la división.  Son iguales pero en cada una de ellas se modifica la operación de reduce.
+
 ## Conclusiones
 
 En esta práctica he aprendido a utilizar los paquetes *yarg* y *chalk* para crear una aplicación de línea de comandos que permite gestionar una colección de Funkos.
