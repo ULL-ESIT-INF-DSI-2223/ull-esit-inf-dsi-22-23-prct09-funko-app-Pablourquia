@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Usuario} from '../src/usuario';
+import { Usuario} from '../../src/practica/usuario';
 
 describe('Usuario', () => {
   it('Se puede crear un Usuario', () => {

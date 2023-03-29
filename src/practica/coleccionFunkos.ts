@@ -1,5 +1,18 @@
 import { Funko } from "./funko";
 
+/**
+ * Clase que representa una colección de Funkos
+ * @class ColeccionFunkos
+ * @param nombre_usuario - Nombre del usuario
+ * @param funkos - Colección de Funkos
+ * @method getFunkos - Devuelve la colección de Funkos
+ * @method setFunkos - Establece la colección de Funkos 
+ * @method addFunko - Añade un nuevo Funko a la colección
+ * @method removeFunko - Elimina un Funko de la colección
+ * @method updateFunko - Actualiza un Funko de la colección
+ * @method getFunko - Devuelve un Funko de la colección
+ * @method getNombreUsuario - Devuelve el nombre del usuario
+ */
 export class ColeccionFunkos {
   constructor(private nombre_usuario: string, private funkos: Funko[]) {
     this.funkos = funkos;

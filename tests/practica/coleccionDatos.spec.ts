@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
-import { ColeccionFunkos } from '../src/coleccionFunkos';
-import {ColeccionDatos} from '../src/coleccionDatos';
+import { ColeccionFunkos } from '../../src/practica/coleccionFunkos';
+import {ColeccionDatos} from '../../src/practica/coleccionDatos';
 
 describe('ColeccionDatos', () => {
   it('Se puede crear una ColeccionDatos', () => {

@@ -1,6 +1,7 @@
 {
     "entryPoints": [
-        "./src/*.ts"
+        "./src/practica/*.ts",
+        "./src/mod/*.tsx"
     ],
-    "out": "./docs",
+    "out": "./docs"
 }

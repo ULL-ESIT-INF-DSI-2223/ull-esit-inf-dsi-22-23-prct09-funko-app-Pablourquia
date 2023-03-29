@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Funko, Genero, Tipo} from '../src/funko';
+import { Funko, Genero, Tipo} from '../../src/practica/funko';
 
 describe('Funko', () => {
   it('Se puede crear un Funko', () => {

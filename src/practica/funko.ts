@@ -10,6 +10,31 @@ export enum Tipo {
   Pop_Vinyl = 'Pop Vinyl',
 };
 
+/**
+ * Clase que representa un Funko
+ * @class Funko
+ * @method getId - Devuelve el id del Funko
+ * @method getNombre - Devuelve el nombre del Funko
+ * @method getDescripcion - Devuelve la descripción del Funko
+ * @method getTipo - Devuelve el tipo del Funko
+ * @method getGenero - Devuelve el género del Funko
+ * @method getFranquicia - Devuelve la franquicia del Funko
+ * @method getNumero - Devuelve el número del Funko
+ * @method getExclusivo - Devuelve si el Funko es exclusivo o no
+ * @method getCaracteristicasEspeciales - Devuelve las características especiales del Funko
+ * @method getValorMercado - Devuelve el valor de mercado del Funko
+ * @method setId - Establece el id del Funko
+ * @method setNombre - Establece el nombre del Funko
+ * @method setDescripcion - Establece la descripción del Funko
+ * @method setTipo - Establece el tipo del Funko
+ * @method setGenero - Establece el género del Funko
+ * @method setFranquicia - Establece la franquicia del Funko
+ * @method setNumero - Establece el número del Funko
+ * @method setExclusivo - Establece si el Funko es exclusivo o no
+ * @method setCaracteristicasEspeciales - Establece las características especiales del Funko
+ * @method setValorMercado - Establece el valor de mercado del Funko
+ * 
+ */
 export class Funko {
   constructor (private id : number, private nombre : string, private descripcion : string, private tipo : Tipo, private genero : Genero, private franquicia : string, private numero : number, private exclusivo : boolean, private caracteristicasEspeciales : string, private valorMercado : number) {
     this.id = id
